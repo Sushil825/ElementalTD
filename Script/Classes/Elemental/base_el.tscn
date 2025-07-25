@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr5r6fhrqlxyd"]
+
+[ext_resource type="Script" uid="uid://dn6q2fs8ub1cw" path="res://Script/Classes/Elemental/base_el.gd" id="1_cydnx"]
+[ext_resource type="Script" uid="uid://1qpjoldcsi5s" path="res://Scenes/Components/hurt_box.gd" id="3_pejk2"]
+
+[node name="BaseEL" type="Node2D"]
+script = ExtResource("1_cydnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HurtBoxComponent" type="Area2D" parent="."]
+script = ExtResource("3_pejk2")
+metadata/_custom_type_script = "uid://1qpjoldcsi5s"

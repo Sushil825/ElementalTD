@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://uxqgh3pukjaa"]
+
+[ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_u8utp"]
+[ext_resource type="Script" uid="uid://cuc66vgl0ol3h" path="res://Scenes/BaseElements/fire_el.gd" id="2_d8o1t"]
+[ext_resource type="Texture2D" uid="uid://y74t37e2gahv" path="res://Assets/Elementals/fire/fire_1.png" id="3_o5p6x"]
+[ext_resource type="PackedScene" uid="uid://bvbd3f257hmle" path="res://Scenes/Projectiles/fire_base_proj.tscn" id="4_il804"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5p6x"]
+radius = 21.0
+
+[node name="FireEL" instance=ExtResource("1_u8utp")]
+script = ExtResource("2_d8o1t")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_o5p6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_o5p6x")
+
+[node name="FireBaseProj" parent="." index="2" instance=ExtResource("4_il804")]
+position = Vector2(3, 2)
+scale = Vector2(0.4, 0.4)

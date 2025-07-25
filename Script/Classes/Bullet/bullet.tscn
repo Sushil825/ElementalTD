@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://l4axbint870x"]
+
+[ext_resource type="Script" uid="uid://qu3lpu5n8bpt" path="res://Script/Classes/Bullet/bullet.gd" id="1_grpyf"]
+[ext_resource type="Texture2D" uid="uid://b5g1f2ot3rt4e" path="res://Assets/Proj/Fiyah.png" id="2_70moa"]
+[ext_resource type="Script" uid="uid://btlos5kh7xxlt" path="res://Scenes/Components/hit_box_component.gd" id="2_qy0nv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8brk"]
+atlas = ExtResource("2_70moa")
+region = Rect2(0, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4egw"]
+atlas = ExtResource("2_70moa")
+region = Rect2(58, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tutkw"]
+atlas = ExtResource("2_70moa")
+region = Rect2(116, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpmda"]
+atlas = ExtResource("2_70moa")
+region = Rect2(0, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lefbe"]
+atlas = ExtResource("2_70moa")
+region = Rect2(58, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uldjd"]
+atlas = ExtResource("2_70moa")
+region = Rect2(116, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo7tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8brk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4egw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tutkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpmda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lefbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uldjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0xkr"]
+radius = 34.0147
+
+[node name="FireProj" type="Node2D"]
+script = ExtResource("1_grpyf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bo7tk")
+autoplay = "default"
+frame_progress = 0.817792
+
+[node name="HitBoxComponent" type="Area2D" parent="."]
+script = ExtResource("2_qy0nv")
+metadata/_custom_type_script = "uid://btlos5kh7xxlt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-4, 4)
+shape = SubResource("CircleShape2D_d0xkr")

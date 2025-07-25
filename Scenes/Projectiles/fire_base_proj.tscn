@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvbd3f257hmle"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_p0wq3"]
+
+[node name="FireBaseProj" instance=ExtResource("1_p0wq3")]

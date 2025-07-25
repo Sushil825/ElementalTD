@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wqngkhc7drfw"]
+
+[ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_641mp"]
+
+[node name="TestScene1" type="Node"]
+
+[node name="BaseEL" parent="." instance=ExtResource("1_641mp")]
+position = Vector2(530, 324)

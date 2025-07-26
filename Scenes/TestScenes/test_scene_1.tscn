@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://wqngkhc7drfw"]
+[gd_scene load_steps=3 format=3 uid="uid://wqngkhc7drfw"]
 
-[ext_resource type="PackedScene" uid="uid://bo5tyhccjcg0y" path="res://Scenes/BaseElements/dark.tscn" id="1_641mp"]
+[ext_resource type="PackedScene" uid="uid://bhjdykvisnme6" path="res://Scenes/BaseElements/wind_el.tscn" id="1_641mp"]
+[ext_resource type="PackedScene" uid="uid://ytf35421lpj4" path="res://Scenes/Enemies/Slime/normal_slime.tscn" id="2_36yhe"]
 
 [node name="TestScene1" type="Node"]
 
-[node name="Dark" parent="." instance=ExtResource("1_641mp")]
-position = Vector2(514, 341)
+[node name="WindEL" parent="." instance=ExtResource("1_641mp")]
+position = Vector2(552, 341)
+
+[node name="NormalSlime" parent="." instance=ExtResource("2_36yhe")]
+position = Vector2(1139, 343)

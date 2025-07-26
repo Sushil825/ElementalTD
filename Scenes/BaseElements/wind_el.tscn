@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhjdykvisnme6"]
+
+[ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_2wwoj"]
+[ext_resource type="Script" uid="uid://df3aqaqk8loy4" path="res://Scenes/BaseElements/wind_el.gd" id="2_wg257"]
+[ext_resource type="PackedScene" uid="uid://74qu661mixwi" path="res://Scenes/Projectiles/wind_bullet.tscn" id="3_gkk5x"]
+[ext_resource type="Texture2D" uid="uid://b447epm0xd5pp" path="res://Assets/Elementals/wind/wind_1.png" id="3_obnqr"]
+[ext_resource type="Script" uid="uid://b6km8tje2qcdx" path="res://Scenes/Components/health_box_component.gd" id="4_obnqr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wg257"]
+radius = 19.0
+height = 48.0
+
+[node name="WindEL" instance=ExtResource("1_2wwoj")]
+script = ExtResource("2_wg257")
+wind_base_proj = ExtResource("3_gkk5x")
+fire_rate_min = 2.5
+fire_rate_max = 3.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_obnqr")
+
+[node name="HurtBoxComponent" parent="." index="1" node_paths=PackedStringArray("health")]
+collision_mask = 0
+health = NodePath("../HealthBoxComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("CapsuleShape2D_wg257")
+
+[node name="HealthBoxComponent" type="Node2D" parent="." index="2"]
+script = ExtResource("4_obnqr")
+metadata/_custom_type_script = "uid://b6km8tje2qcdx"

@@ -3,7 +3,7 @@ class_name HealthBoxComponent
 
 
 @export var max_health:int=200
-@export var current_health:int=200
+var current_health=max_health
 @export var can_regen:bool=false
 @export var shield_active:bool=false
 @export var shield_value:int=50
@@ -19,6 +19,10 @@ func _on_regen_called():
 	pass
 
 func _take_damage(amount:int):
+	
+	
+	if current_health<=0:
+		self.get_parent().queue_free()
 	
 	if shield_active:
 		take_shield_damage(amount)

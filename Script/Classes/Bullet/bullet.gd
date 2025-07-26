@@ -20,10 +20,13 @@ func _ready() -> void:
 	life.one_shot=true
 	add_child(life)
 	life.start()
+	
 
 func _process(delta: float) -> void:
 	position+=def_direction*speed*speed_mult*delta
 	
+
+
 
 func _on_lifetime_expired():
 	

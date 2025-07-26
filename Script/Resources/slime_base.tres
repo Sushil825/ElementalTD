@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://ucbioles0qua"]
+
+[ext_resource type="Script" uid="uid://b80n6gxcu0lwn" path="res://Script/Resources/enemy_stats.gd" id="1_jc5gw"]
+
+[resource]
+script = ExtResource("1_jc5gw")
+health = 50
+can_regen = false
+regen_amount = 2
+shield_amount = 50
+can_shield = false
+move_speed = 100.0
+base_dmg = 20.0
+move_mult = 1.0
+attack_mult = 1.0
+burn_res = 0.0
+freeze_res = 0.0
+poison_res = 0.0
+knockback_res = 0.0
+shock_res = 0.0
+fire_res = 0.0
+water_res = 0.0
+thunder_res = 0.0
+light_res = 0.0
+dark_res = 0.0
+wind_res = 0.0
+metadata/_custom_type_script = "uid://b80n6gxcu0lwn"

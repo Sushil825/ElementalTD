@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfq7mnk67l1gb"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_jltu5"]
+[ext_resource type="Texture2D" uid="uid://drnovs4uldiws" path="res://Assets/Proj/Water/Water__01.png" id="2_ki2f2"]
+[ext_resource type="Texture2D" uid="uid://bgy54d24ktd2v" path="res://Assets/Proj/Water/Water__02.png" id="3_rx2a4"]
+[ext_resource type="Texture2D" uid="uid://dqhkpyjcesxru" path="res://Assets/Proj/Water/Water__03.png" id="4_estwx"]
+[ext_resource type="Texture2D" uid="uid://cw8snhacv1n1t" path="res://Assets/Proj/Water/Water__04.png" id="5_6okbx"]
+[ext_resource type="Texture2D" uid="uid://gc5wjnfyrryj" path="res://Assets/Proj/Water/Water__05.png" id="6_ky3ro"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ki2f2"]
+radius = 36.8179
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e67ey"]
+atlas = ExtResource("2_ki2f2")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4luhm"]
+atlas = ExtResource("3_rx2a4")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7u5k"]
+atlas = ExtResource("4_estwx")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipghu"]
+atlas = ExtResource("5_6okbx")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btdnn"]
+atlas = ExtResource("6_ky3ro")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7ljw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e67ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4luhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7u5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipghu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btdnn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaterBullet" instance=ExtResource("1_jltu5")]
+scale = Vector2(0.3, 0.3)
+speed = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_ki2f2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_t7ljw")
+autoplay = "default"
+frame_progress = 0.34211

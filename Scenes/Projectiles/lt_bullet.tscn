@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlv6f246lca5i"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_rb4bj"]
+[ext_resource type="Texture2D" uid="uid://v7rs8h7v3c5i" path="res://Assets/Proj/Preview.png" id="2_wplln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l0ua"]
+atlas = ExtResource("2_wplln")
+region = Rect2(131, 524, 131, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwun8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l0ua")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8dxd"]
+radius = 12.0128
+height = 51.995
+
+[node name="LtBullet" instance=ExtResource("1_rb4bj")]
+scale = Vector2(0.8, 0.8)
+speed = 200.0
+damage = 45.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_vwun8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+position = Vector2(-2, 7)
+rotation = 1.55689
+shape = SubResource("CapsuleShape2D_u8dxd")

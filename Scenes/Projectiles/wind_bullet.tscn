@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://74qu661mixwi"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_5n8gy"]
+[ext_resource type="Texture2D" uid="uid://bqomgohux84d1" path="res://Assets/Proj/Wind/Slash symmetrical blue.png" id="2_dwgrf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynquo"]
+radius = 83.2817
+height = 293.386
+
+[node name="WindBullet" instance=ExtResource("1_5n8gy")]
+scale = Vector2(0.2, 0.2)
+speed = 500.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dwgrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+position = Vector2(26.6667, -6.66667)
+rotation = -1.5356
+shape = SubResource("CapsuleShape2D_ynquo")

@@ -19,6 +19,7 @@ fire_rate_max = 4.0
 texture = ExtResource("3_e416h")
 
 [node name="HurtBoxComponent" parent="." index="1" node_paths=PackedStringArray("health")]
+collision_mask = 0
 health = NodePath("../HealthBoxComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]

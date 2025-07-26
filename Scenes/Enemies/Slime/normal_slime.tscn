@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ytf35421lpj4"]
+
+[ext_resource type="PackedScene" uid="uid://b21mwlne4lwiv" path="res://Script/Classes/Enemies/slime.tscn" id="1_u3rr2"]
+[ext_resource type="Texture2D" uid="uid://lfrmtpql32ut" path="res://Assets/Enemies/Slimes/Bodies/green_1.png" id="2_2m6s2"]
+[ext_resource type="Script" uid="uid://fboowqp8a3co" path="res://Scenes/Enemies/Slime/normal_slime.gd" id="2_jqg1j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqg1j"]
+radius = 16.9988
+height = 51.9962
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gu7ms"]
+radius = 18.9998
+height = 49.9995
+
+[node name="NormalSlime" instance=ExtResource("1_u3rr2")]
+script = ExtResource("2_jqg1j")
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource("2_2m6s2")
+
+[node name="HurtBoxComponent" parent="." index="3" node_paths=PackedStringArray("health")]
+collision_layer = 4
+health = NodePath("../HealthBoxComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(0, -3)
+rotation = 1.55873
+shape = SubResource("CapsuleShape2D_jqg1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+position = Vector2(0, -3)
+rotation = 1.57526
+shape = SubResource("CapsuleShape2D_gu7ms")

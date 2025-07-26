@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdtkdfrvgtsji"]
+
+[ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_oxhaw"]
+[ext_resource type="Script" uid="uid://8b1ay47dpctk" path="res://Scenes/BaseElements/water_el.gd" id="2_dkob1"]
+[ext_resource type="Texture2D" uid="uid://3p1rcsffdtxa" path="res://Assets/Elementals/water/water_1.png" id="2_vv2ed"]
+[ext_resource type="PackedScene" uid="uid://cfq7mnk67l1gb" path="res://Scenes/Projectiles/water_bullet.tscn" id="3_7ybyq"]
+[ext_resource type="Script" uid="uid://b6km8tje2qcdx" path="res://Scenes/Components/health_box_component.gd" id="3_hacl4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv2ed"]
+radius = 15.0
+height = 48.0
+
+[node name="WaterEL" instance=ExtResource("1_oxhaw")]
+script = ExtResource("2_dkob1")
+water_base_proj = ExtResource("3_7ybyq")
+fire_rate_min = 3.5
+fire_rate_max = 4.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_vv2ed")
+
+[node name="HurtBoxComponent" parent="." index="1" node_paths=PackedStringArray("health")]
+collision_mask = 0
+health = NodePath("../HealthBoxComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_vv2ed")
+
+[node name="HealthBoxComponent" type="Node2D" parent="." index="2"]
+script = ExtResource("3_hacl4")
+metadata/_custom_type_script = "uid://b6km8tje2qcdx"

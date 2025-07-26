@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://ybd2ehw3264t"]
+
+[ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_lgr0y"]
+[ext_resource type="Script" uid="uid://d10nfnwmocce3" path="res://Scenes/BaseElements/light_el.gd" id="2_itchn"]
+[ext_resource type="Texture2D" uid="uid://nceustun6jl8" path="res://Assets/Elementals/light/light_1.png" id="2_rq5us"]
+[ext_resource type="Script" uid="uid://b6km8tje2qcdx" path="res://Scenes/Components/health_box_component.gd" id="3_7dcwt"]
+[ext_resource type="PackedScene" uid="uid://dlv6f246lca5i" path="res://Scenes/Projectiles/lt_bullet.tscn" id="3_dvf5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dcwt"]
+radius = 23.0
+
+[node name="LightEl" instance=ExtResource("1_lgr0y")]
+script = ExtResource("2_itchn")
+lt_base_proj = ExtResource("3_dvf5a")
+fire_rate_min = 3.5
+fire_rate_max = 4.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rq5us")
+
+[node name="HurtBoxComponent" parent="." index="1" node_paths=PackedStringArray("health")]
+collision_mask = 0
+health = NodePath("../HealthBoxComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_7dcwt")
+
+[node name="HealthBoxComponent" type="Node2D" parent="." index="2"]
+script = ExtResource("3_7dcwt")
+metadata/_custom_type_script = "uid://b6km8tje2qcdx"

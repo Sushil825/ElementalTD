@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b21mwlne4lwiv"]
+
+[ext_resource type="Script" uid="uid://bfop0atcxr110" path="res://Script/Classes/Enemies/slime.gd" id="1_h0f25"]
+[ext_resource type="Script" uid="uid://b6km8tje2qcdx" path="res://Scenes/Components/health_box_component.gd" id="2_fel2g"]
+[ext_resource type="Resource" uid="uid://ucbioles0qua" path="res://Script/Resources/slime_base.tres" id="2_vppdw"]
+[ext_resource type="Script" uid="uid://1qpjoldcsi5s" path="res://Scenes/Components/hurt_box.gd" id="3_vppdw"]
+[ext_resource type="Script" uid="uid://btlos5kh7xxlt" path="res://Scenes/Components/hit_box_component.gd" id="4_khure"]
+
+[node name="Slime" type="Node2D"]
+script = ExtResource("1_h0f25")
+stats = ExtResource("2_vppdw")
+
+[node name="Body" type="Sprite2D" parent="."]
+
+[node name="Face" type="Sprite2D" parent="."]
+
+[node name="HealthBoxComponent" type="Node2D" parent="."]
+script = ExtResource("2_fel2g")
+metadata/_custom_type_script = "uid://b6km8tje2qcdx"
+
+[node name="HurtBoxComponent" type="Area2D" parent="."]
+script = ExtResource("3_vppdw")
+metadata/_custom_type_script = "uid://1qpjoldcsi5s"
+
+[node name="HitBoxComponent" type="Area2D" parent="."]
+script = ExtResource("4_khure")
+metadata/_custom_type_script = "uid://btlos5kh7xxlt"

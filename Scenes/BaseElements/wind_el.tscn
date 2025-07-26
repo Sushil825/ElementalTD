@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhjdykvisnme6"]
+[gd_scene load_steps=8 format=3 uid="uid://bhjdykvisnme6"]
 
 [ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_2wwoj"]
 [ext_resource type="Script" uid="uid://df3aqaqk8loy4" path="res://Scenes/BaseElements/wind_el.gd" id="2_wg257"]
@@ -10,11 +10,16 @@
 radius = 19.0
 height = 48.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gkk5x"]
+radius = 450.0
+
 [node name="WindEL" instance=ExtResource("1_2wwoj")]
 script = ExtResource("2_wg257")
 wind_base_proj = ExtResource("3_gkk5x")
-fire_rate_min = 2.5
-fire_rate_max = 3.0
+fire_rate_min = 1.5
+fire_rate_max = 2.5
+detection_radius = 500.0
+max_targets = 2
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_obnqr")
@@ -29,3 +34,10 @@ shape = SubResource("CapsuleShape2D_wg257")
 [node name="HealthBoxComponent" type="Node2D" parent="." index="2"]
 script = ExtResource("4_obnqr")
 metadata/_custom_type_script = "uid://b6km8tje2qcdx"
+
+[node name="DetectionArea" type="Area2D" parent="." index="3"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_gkk5x")

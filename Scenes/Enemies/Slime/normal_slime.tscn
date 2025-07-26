@@ -12,7 +12,7 @@ height = 51.9962
 radius = 18.9998
 height = 49.9995
 
-[node name="NormalSlime" instance=ExtResource("1_u3rr2")]
+[node name="NormalSlime" groups=["enemies"] instance=ExtResource("1_u3rr2")]
 script = ExtResource("2_jqg1j")
 
 [node name="Body" parent="." index="0"]

@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position+=def_direction*speed*speed_mult*delta
+	print(position)
 	
 
 
@@ -31,3 +32,7 @@ func _process(delta: float) -> void:
 func _on_lifetime_expired():
 	
 	queue_free()
+	
+	
+func set_direction(direction:Vector2):
+	def_direction=direction

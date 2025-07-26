@@ -6,7 +6,7 @@
 [node name="TestScene1" type="Node"]
 
 [node name="WindEL" parent="." instance=ExtResource("1_641mp")]
-position = Vector2(552, 341)
+position = Vector2(640, 360)
 
 [node name="NormalSlime" parent="." instance=ExtResource("2_36yhe")]
-position = Vector2(1139, 343)
+position = Vector2(1227, 102)

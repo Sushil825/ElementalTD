@@ -39,6 +39,10 @@ folder_colors={
 "res://addons/": "orange"
 }
 
+[global_group]
+
+enemies=""
+
 [layer_names]
 
 2d_render/layer_1="towers"

@@ -3,9 +3,10 @@ extends Slime
 @onready var face: Sprite2D = $Face
 @onready var hurt_box_component: HurtBoxComponent = $HurtBoxComponent
 @onready var hit_box_component: HitBoxComponent = $HitBoxComponent
-
+var center:Vector2
 func _ready() -> void:
 	super._ready()
+	center=get_viewport_rect().size/2
 	
 	hit_box_component.damage=stats.base_dmg
 	if StaticSlimeFace.faces.size()>0:
@@ -18,4 +19,4 @@ func handle_damage(damage:int):
 
 
 func _process(delta: float) -> void:
-	pass
+	global_position=position.move_toward(center,delta*stats.move_speed*stats.move_mult)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://uxqgh3pukjaa"]
+[gd_scene load_steps=7 format=3 uid="uid://uxqgh3pukjaa"]
 
 [ext_resource type="PackedScene" uid="uid://dr5r6fhrqlxyd" path="res://Script/Classes/Elemental/base_el.tscn" id="1_u8utp"]
 [ext_resource type="Script" uid="uid://cuc66vgl0ol3h" path="res://Scenes/BaseElements/fire_el.gd" id="2_d8o1t"]
@@ -8,8 +8,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5p6x"]
 radius = 21.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_il804"]
+radius = 208.346
+
 [node name="FireEL" instance=ExtResource("1_u8utp")]
 script = ExtResource("2_d8o1t")
+fire_base_proj = ExtResource("4_il804")
+fire_rate_min = 2.5
+fire_rate_max = 4.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_o5p6x")
@@ -18,6 +24,8 @@ texture = ExtResource("3_o5p6x")
 position = Vector2(1, 2)
 shape = SubResource("CircleShape2D_o5p6x")
 
-[node name="FireBaseProj" parent="." index="2" instance=ExtResource("4_il804")]
-position = Vector2(3, 2)
-scale = Vector2(0.4, 0.4)
+[node name="DetectionArea" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_il804")
+debug_color = Color(0.629125, 0.53018, 0, 0.42)

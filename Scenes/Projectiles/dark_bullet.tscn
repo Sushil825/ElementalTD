@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0pjahla6a5mw"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_jwai2"]
+[ext_resource type="Texture2D" uid="uid://buxi3ta5cj7kt" path="res://Assets/Proj/poison sword.PNG" id="2_hurv2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t4tka"]
+radius = 30.0
+height = 118.0
+
+[node name="DarkBullet" instance=ExtResource("1_jwai2")]
+rotation = 1.58461
+scale = Vector2(0.3, 0.3)
+speed = 200.0
+damage = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hurv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+shape = SubResource("CapsuleShape2D_t4tka")

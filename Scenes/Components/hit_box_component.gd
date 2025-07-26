@@ -9,7 +9,7 @@ func _ready() -> void:
 func _on_body_entered(area:Area2D):
 	if area is HurtBoxComponent:
 		if area.has_method("take_damage"):
-			if self.get_parent().had_method("handle_damage"):
+			if self.get_parent().has_method("handle_damage"):
 				self.get_parent().handle_damage(area)
 				queue_free()
 		

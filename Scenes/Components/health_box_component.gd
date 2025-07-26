@@ -12,7 +12,7 @@ var regen_timer:Timer
 
 
 func _ready() -> void:
-	
+	regen_timer=Timer.new()
 	regen_timer.timeout.connect(_on_regen_called)
 	
 func _on_regen_called():

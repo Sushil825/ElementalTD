@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dylwtqeyt7qmr"]
+
+[ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_vm05c"]
+[ext_resource type="Texture2D" uid="uid://erupvcy3jndl" path="res://Assets/Proj/shock.png" id="2_vm05c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vm05c"]
+height = 61.7614
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr8jy"]
+atlas = ExtResource("2_vm05c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qup4u"]
+atlas = ExtResource("2_vm05c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yg47"]
+atlas = ExtResource("2_vm05c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1aji"]
+atlas = ExtResource("2_vm05c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4amx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr8jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qup4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yg47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1aji")
+}],
+"loop": true,
+"name": &"default_right",
+"speed": 7.0
+}]
+
+[node name="ThunderBullet" instance=ExtResource("1_vm05c")]
+speed = 450.0
+damage = 25.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+rotation = 1.56262
+shape = SubResource("CapsuleShape2D_vm05c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_p4amx")
+animation = &"default_right"
+autoplay = "default_right"
+frame_progress = 0.229087

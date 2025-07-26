@@ -10,7 +10,6 @@ func _ready() -> void:
 func _on_area_entered(area:Area2D):
 	var parent=area.get_parent()
 	
-	print(parent.name)
 
 
 func take_damage(amount:int):

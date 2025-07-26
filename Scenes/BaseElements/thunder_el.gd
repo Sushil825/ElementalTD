@@ -1,9 +1,9 @@
 extends BaseElements
 
 
-@export var fire_base_proj:PackedScene
+@export var el_base_proj:PackedScene
 @export var fire_rate_min:float=2.5
-@export var fire_rate_max:float=4.0
+@export var fire_rate_max:float=3.0
 
 var fire_timer:Timer
 var can_fire:bool=true
@@ -28,5 +28,5 @@ func spawn_fire_proj():
 	fire_timer.wait_time=randf_range(fire_rate_min,fire_rate_max)
 	fire_timer.start()
 	
-	var fire_=fire_base_proj.instantiate()
-	add_child(fire_)
+	var lightning=el_base_proj.instantiate()
+	add_child(lightning)

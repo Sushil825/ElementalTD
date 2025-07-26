@@ -1,5 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvbd3f257hmle"]
+[gd_scene load_steps=11 format=3 uid="uid://bvbd3f257hmle"]
 
 [ext_resource type="PackedScene" uid="uid://l4axbint870x" path="res://Script/Classes/Bullet/bullet.tscn" id="1_p0wq3"]
+[ext_resource type="Texture2D" uid="uid://b5g1f2ot3rt4e" path="res://Assets/Proj/Fiyah.png" id="2_lqr5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqr5u"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(0, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3hf6"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(58, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d3l3"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(116, 0, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4axb"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(0, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b6bv"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(58, 72, 58, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2iup"]
+atlas = ExtResource("2_lqr5u")
+region = Rect2(116, 72, 58, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fc4k7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqr5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3hf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d3l3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4axb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b6bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2iup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqr5u"]
+radius = 35.3553
 
 [node name="FireBaseProj" instance=ExtResource("1_p0wq3")]
+scale = Vector2(0.4, 0.4)
+speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_fc4k7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+shape = SubResource("CircleShape2D_lqr5u")
